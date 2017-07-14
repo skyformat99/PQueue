@@ -38,9 +38,10 @@ class ArrayPriorityQueue {
 
   /* Helper functions */
   void doubleCapacity();
-  int findIndex(string s);  
-  int compareEntries(PQEntry one, PQEntry two);
-  int findTopPriorityIndex();
+  int findIndex(string s) const;  
+  int compareEntries(PQEntry one, PQEntry two) const;
+  int findTopPriorityIndex() const;
+  void rearrangeArr(int index);
   
   /* need to deal with shallow copy here */
 
