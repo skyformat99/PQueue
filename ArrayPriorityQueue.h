@@ -39,7 +39,9 @@ class ArrayPriorityQueue {
   /* Helper functions */
   void doubleCapacity();
   int findIndex(string s);  
+  int compareEntries(PQEntry one, PQEntry two);
 
+  
   /* need to deal with shallow copy here */
 
 };

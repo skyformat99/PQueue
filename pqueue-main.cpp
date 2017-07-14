@@ -26,6 +26,7 @@
 #include "LinkedPriorityQueue.h"
 #include "HeapPriorityQueue.h"
 #include "ExtraPriorityQueue.h"
+#include "PQEntry.h"		// for testing, remove this later
 
 using namespace std;
 
@@ -47,23 +48,29 @@ int main() {
   }
 
   ArrayPriorityQueue pq;
-  cout << pq.size() << endl;
-  pq.enqueue("a", 1);
-  pq.enqueue("b", 2);
-  pq.enqueue("c", 3);
-  pq.enqueue("d", 4);
-  pq.enqueue("a", 1);
-  pq.enqueue("b", 2);
-  pq.enqueue("c", 3);
-  pq.enqueue("d", 4);  
-  pq.enqueue("a", 1);
-  pq.enqueue("b", 2);
-  pq.enqueue("c", 3);
-  pq.enqueue("d", 4);  
-  cout << pq.size() << endl;
-  pq.printPQueue();
+  // cout << pq.size() << endl;
+  // pq.enqueue("a", -1);
+  // pq.enqueue("b", 2);
+  // pq.enqueue("c", 3);
+  // pq.enqueue("d", 4);
+  // pq.enqueue("a", 1);
+  // pq.enqueue("b", 2);
+  // pq.enqueue("c", 3);
+  // pq.enqueue("d", 4);  
+  // pq.enqueue("a", 1);
+  // pq.enqueue("b", 2);
+  // pq.enqueue("c", 3);
+  // pq.enqueue("d", 4);  
+  // cout << pq.size() << endl;
+  // pq.printPQueue();
 
-
+  // PQEntry one;
+  // PQEntry two;
+  // one.value = "a";
+  // one.priority = 5;
+  // two.value = "x";
+  // two.priority = 5;
+  // cout << pq.compareEntries(one, two) << endl;
   
   // while (true) {
   //   cout << endl;

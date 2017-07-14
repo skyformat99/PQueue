@@ -106,3 +106,19 @@ int ArrayPriorityQueue::findIndex(string s) {
   }
   return index;
 }
+
+
+/* Helper function, compares two PQEntry to see which is more important
+ * Comparison rule: the one with smaller priority number is more important
+ * If priority numbers are the same, then do a string comparison on value
+ * the "smaller" string is more important.
+ * Results: return -1 if one is more important, 1 otherwise
+ * return 0 if the two are the same in terms of priority
+ */
+int ArrayPriorityQueue::compareEntries(PQEntry one, PQEntry two) {
+  if (one.priority < two.priority) return -1;
+  else if (one.priority > two.priority) return 1;
+  else if (one.value < two.value) return -1;
+  else if (one.value > two.value) return 1;
+  else return 0;
+}
