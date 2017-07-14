@@ -40,7 +40,7 @@ class ArrayPriorityQueue {
   void doubleCapacity();
   int findIndex(string s);  
   int compareEntries(PQEntry one, PQEntry two);
-
+  int findTopPriorityIndex();
   
   /* need to deal with shallow copy here */
 

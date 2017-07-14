@@ -122,3 +122,19 @@ int ArrayPriorityQueue::compareEntries(PQEntry one, PQEntry two) {
   else if (one.value > two.value) return 1;
   else return 0;
 }
+
+
+/* Helper function, find the top priority entry in the queue and returns its index
+ * If there are multiple top priority entries, returns the index of the first one
+ */
+int ArrayPriorityQueue::findTopPriorityIndex() {
+  int index = 0;
+  PQEntry current = arr[0];
+  for (int i = 0; i < count; i++) {
+    if (compareEntries(arr[i], current) == -1) { // arr[i] is more important
+      index = i;
+      current = arr[i];
+    }  
+  }
+  return index;
+}
