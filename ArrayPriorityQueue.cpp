@@ -91,3 +91,18 @@ void ArrayPriorityQueue::doubleCapacity() {
   }
   delete[] oldArr;
 }
+
+
+/* Helper function, findIndex returns the index of first 
+ * appearance of value
+ */
+int ArrayPriorityQueue::findIndex(string s) {
+  int index = -1;
+  for (int i = 0; i < count; i++) {
+    if (arr[i].value == s) {
+      index = i;
+      break;			// only need the first appearance
+    }
+  }
+  return index;
+}

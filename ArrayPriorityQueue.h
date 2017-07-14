@@ -26,7 +26,7 @@ class ArrayPriorityQueue {
   int size() const;
   void printPQueue();  
   friend ostream& operator <<(ostream& out, const ArrayPriorityQueue& queue);
-  
+
 
  private:
   
@@ -38,6 +38,7 @@ class ArrayPriorityQueue {
 
   /* Helper functions */
   void doubleCapacity();
+  int findIndex(string s);  
 
   /* need to deal with shallow copy here */
 

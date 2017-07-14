@@ -60,14 +60,10 @@ int main() {
   pq.enqueue("b", 2);
   pq.enqueue("c", 3);
   pq.enqueue("d", 4);  
-
   cout << pq.size() << endl;
   pq.printPQueue();
 
-  cout << pq.isEmpty() << endl;
-  pq.clear();
-  pq.printPQueue();
-  cout << pq.isEmpty() << endl;  
+
   
   // while (true) {
   //   cout << endl;
