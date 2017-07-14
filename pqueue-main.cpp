@@ -46,29 +46,52 @@ int main() {
     setRandomSeed(42);   // life, the universe, and everything
   }
 
-  while (true) {
-    cout << endl;
-    cout << "A) Array, L) Linked, H) Heap, E)xtra, Q)uit" << endl;
-    string choice = toUpperCase(trim(getLine(
-					     "Choose a queue: ")));
-    if (choice.empty() || choice == "Q") {
-      break;
-    } else if (choice == "A") {
-      ArrayPriorityQueue pq;
-      test(pq);
-    } else if (choice == "L") {
-      LinkedPriorityQueue pq;
-      test(pq);
-    } else if (choice == "H") {
-      HeapPriorityQueue pq;
-      test(pq);
-    } else if (choice == "E") {
-      ExtraPriorityQueue pq;
-      test(pq);
-    } else if (choice == "TNG") {
-      easterEgg();
-    }
-  }
+  ArrayPriorityQueue pq;
+  cout << pq.size() << endl;
+  pq.enqueue("a", 1);
+  pq.enqueue("b", 2);
+  pq.enqueue("c", 3);
+  pq.enqueue("d", 4);
+  pq.enqueue("a", 1);
+  pq.enqueue("b", 2);
+  pq.enqueue("c", 3);
+  pq.enqueue("d", 4);  
+  pq.enqueue("a", 1);
+  pq.enqueue("b", 2);
+  pq.enqueue("c", 3);
+  pq.enqueue("d", 4);  
+
+  cout << pq.size() << endl;
+  pq.printPQueue();
+
+  cout << pq.isEmpty() << endl;
+  pq.clear();
+  pq.printPQueue();
+  cout << pq.isEmpty() << endl;  
+  
+  // while (true) {
+  //   cout << endl;
+  //   cout << "A) Array, L) Linked, H) Heap, E)xtra, Q)uit" << endl;
+  //   string choice = toUpperCase(trim(getLine(
+  // 					     "Choose a queue: ")));
+  //   if (choice.empty() || choice == "Q") {
+  //     break;
+  //   } else if (choice == "A") {
+  //     ArrayPriorityQueue pq;
+  //     test(pq);
+  //   } else if (choice == "L") {
+  //     LinkedPriorityQueue pq;
+  //     test(pq);
+  //   } else if (choice == "H") {
+  //     HeapPriorityQueue pq;
+  //     test(pq);
+  //   } else if (choice == "E") {
+  //     ExtraPriorityQueue pq;
+  //     test(pq);
+  //   } else if (choice == "TNG") {
+  //     easterEgg();
+  //   }
+  // }
 
   cout << endl;
   cout << "Exiting." << endl;

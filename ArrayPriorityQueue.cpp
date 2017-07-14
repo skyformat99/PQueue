@@ -1,20 +1,23 @@
-// This is a .cpp file you will edit and turn in.
-// We have provided a skeleton for you,
-// but you must finish it as described in the spec.
-// Also remove these comments here and add your own.
-// TODO: remove this comment header
+/* Unsorted array implementation of PQueue
+ * Rui Hu
+ */
 
 #include "ArrayPriorityQueue.h"
 
+
+/* ArrayPriorityQueue constructor */
 ArrayPriorityQueue::ArrayPriorityQueue() {
-  // TODO: implement
-
+  capacity = INITIAL_CAPACITY;
+  arr = new PQEntry[capacity];
+  count = 0;
 }
 
+
+/* Destructor */
 ArrayPriorityQueue::~ArrayPriorityQueue() {
-  // TODO: implement
-
+  delete[] arr;
 }
+
 
 void ArrayPriorityQueue::changePriority(string value, int newPriority) {
   // TODO: implement
@@ -22,8 +25,7 @@ void ArrayPriorityQueue::changePriority(string value, int newPriority) {
 }
 
 void ArrayPriorityQueue::clear() {
-  // TODO: implement
-
+  count = 0;
 }
 
 string ArrayPriorityQueue::dequeue() {
@@ -31,14 +33,21 @@ string ArrayPriorityQueue::dequeue() {
   return "";   // remove this
 }
 
+/* enqueue() builds a new element with given value and priority
+ * first then adds it to end of array
+ */
 void ArrayPriorityQueue::enqueue(string value, int priority) {
-  // TODO: implement
-
+  if (count == capacity) {	// make sure has enough room
+    doubleCapacity();
+  }
+  PQEntry current;
+  current.value = value;
+  current.priority = priority;
+  arr[count++] = current;
 }
 
 bool ArrayPriorityQueue::isEmpty() const {
-  // TODO: implement
-  return false;   // remove this
+  return count == 0;
 }
 
 string ArrayPriorityQueue::peek() const {
@@ -52,11 +61,33 @@ int ArrayPriorityQueue::peekPriority() const {
 }
 
 int ArrayPriorityQueue::size() const {
-  // TODO: implement
-  return 0;   // remove this
+  return count;
 }
 
+
+/* I don't know the syntax for writing this */
 ostream& operator<<(ostream& out, const ArrayPriorityQueue& queue) {
-  // TODO: implement
   return out;
+}
+
+/* Temp replacement for ostream operator until I figure out the index */
+void ArrayPriorityQueue::printPQueue() {
+  for (int i = 0; i < count; i++) {
+    cout << arr[i].value << ":" << arr[i].priority << endl;
+  }
+}
+
+
+/* doubleCapacity() allocates a new array in heap with twice the size of 
+ * current array, copy all the elements from current to new, and make
+ * arr point to the new array
+ */
+void ArrayPriorityQueue::doubleCapacity() {
+  PQEntry *oldArr = arr;
+  capacity *= 2;
+  arr = new PQEntry[capacity];
+  for (int i = 0; i < count; i++) {
+    arr[i] = oldArr[i];
+  }
+  delete[] oldArr;
 }

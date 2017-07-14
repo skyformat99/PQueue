@@ -1,8 +1,7 @@
-// This is a .h file you will edit and turn in.
-// We have provided a skeleton for you,
-// but you must finish it as described in the spec.
-// Also remove these comments here and add your own.
-// TODO: remove this comment header
+/* PQ Assignment
+ * unsorted array implementation of priority queue
+ * Rui Hu
+ */
 
 #ifndef _arraypriorityqueue_h
 #define _arraypriorityqueue_h
@@ -25,10 +24,22 @@ class ArrayPriorityQueue {
   string peek() const;
   int peekPriority() const;
   int size() const;
+  void printPQueue();  
   friend ostream& operator <<(ostream& out, const ArrayPriorityQueue& queue);
+  
 
  private:
-  // TODO: add any other member functions/variables necessary
+  
+  static const int INITIAL_CAPACITY = 10;
+
+  /* Instance variables */
+  PQEntry *arr;
+  int capacity, count;
+
+  /* Helper functions */
+  void doubleCapacity();
+
+  /* need to deal with shallow copy here */
 
 };
 
