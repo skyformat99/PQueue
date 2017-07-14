@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include "PQEntry.h"
+#include "error.h"
 using namespace std;
 
 // TODO: comment

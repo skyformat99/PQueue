@@ -19,9 +19,18 @@ ArrayPriorityQueue::~ArrayPriorityQueue() {
 }
 
 
+/* Something unclear here: say I have a:2, a:4, a:6 in my queue, what should
+ * happen when I changePriority("a", 3)?
+ */
 void ArrayPriorityQueue::changePriority(string value, int newPriority) {
-  // TODO: implement
-
+  int index = findIndex(value);
+  if (index == -1) {
+    error("Value does not exist in current queue");
+  } else if (arr[index].priority < newPriority) {
+    error("You are lowering priority for this value");
+  } else {
+    arr[index].priority = newPriority;
+  }
 }
 
 void ArrayPriorityQueue::clear() {
@@ -29,8 +38,16 @@ void ArrayPriorityQueue::clear() {
 }
 
 string ArrayPriorityQueue::dequeue() {
-  // TODO: implement
-  return "";   // remove this
+  int index = 0;
+  string result = "";
+  if (size() == 0) {
+    error("Empty queue!");
+  } else {
+    index = findTopPriorityIndex();
+    result = arr[index].value;
+    rearrangeArr(index);	// note count is decremented in reaarangeArr();
+  }
+  return result;
 }
 
 /* enqueue() builds a new element with given value and priority
@@ -51,13 +68,25 @@ bool ArrayPriorityQueue::isEmpty() const {
 }
 
 string ArrayPriorityQueue::peek() const {
-  // TODO: implement
-  return "";   // remove this
+  int index = 0;
+  if (size() == 0 ) {
+    error("Empty queue!");
+  } else {
+    index = findTopPriorityIndex();
+  }
+
+  return arr[index].value;
 }
 
 int ArrayPriorityQueue::peekPriority() const {
-  // TODO: implement
-  return 0;   // remove this
+  int index = 0;
+  if (size() == 0 ) {
+    error("Empty queue!");
+  } else {
+    index = findTopPriorityIndex();
+  }
+
+  return index;
 }
 
 int ArrayPriorityQueue::size() const {
